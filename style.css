@@ -901,9 +901,24 @@ nav a:hover {
   background: white;
 }
 
-.speakers-grid {
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.inclusions-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  text-align: left;
+}
+
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   max-width: 1000px;
   margin: 0 auto;
@@ -981,7 +996,7 @@ nav a:hover {
 
 .audience-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
 
@@ -1629,7 +1644,6 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Responsive Media Queries --- */
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1652,6 +1666,10 @@ footer {
   
   .hero-visual-wrapper::before {
     display: none;
+  }
+  
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .pain-grid {
@@ -1688,7 +1706,7 @@ footer {
 
 @media (max-width: 768px) {
   nav {
-    display: none; /* Mobile menu can be simplified for landing page to focus on CTA */
+    display: none;
   }
   
   .hero {
@@ -1697,6 +1715,18 @@ footer {
   
   .hero-content h1 {
     font-size: 32px;
+  }
+  
+  .hero-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .inclusions-grid {
+    grid-template-columns: 1fr;
   }
   
   .section-title h2 {
@@ -1739,6 +1769,15 @@ footer {
   
   .timeline-card {
     padding: 20px 20px 20px 40px;
+  }
+  
+  .diff-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .diff-table {
+    min-width: 600px;
   }
   
   .diff-table th, .diff-table td {
