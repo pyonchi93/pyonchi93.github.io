@@ -175,32 +175,33 @@ header {
   position: relative;
 }
 
-.logo {
+.navbar-left-logos {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.logo-img-vinmec {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.logo-img-nexus {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+.navbar-right-group {
   display: flex;
   align-items: center;
-}
-
-.logo-text-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 900;
-  font-size: 22px;
-  letter-spacing: -0.5px;
-}
-
-.logo-vinmec {
-  color: var(--vinmec-blue);
-}
-
-.logo-divider {
-  color: #cbd5e1;
-  font-weight: 300;
-}
-
-.logo-nexus {
-  color: var(--vinmec-teal);
+  gap: 20px;
 }
 
 .navbar-pill {
@@ -755,28 +756,14 @@ section {
   flex-shrink: 0;
 }
 
-.speaker-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
+.speaker-img {
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  background: var(--vinmec-blue-light);
-  color: var(--vinmec-blue);
-  box-shadow: 0 4px 10px rgba(0, 103, 171, 0.1);
-}
-
-.speaker-icon-nexus {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #f3e8ff;
-  color: #8b5cf6;
-  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.1);
+  object-fit: cover;
+  display: block;
+  border: 2.5px solid white;
+  box-shadow: 0 4px 12px rgba(0, 103, 171, 0.12);
 }
 
 .speaker-icon i,
@@ -998,11 +985,27 @@ footer {
   gap: 16px;
 }
 
-.footer-logo {
-  font-weight: 900;
-  font-size: 20px;
-  color: white;
-  letter-spacing: -0.5px;
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.logo-white-filter {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+  transition: var(--transition);
+}
+
+.logo-white-filter:hover {
+  opacity: 1;
 }
 
 .footer-desc {

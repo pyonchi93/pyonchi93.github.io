@@ -42,28 +42,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Evergreen Countdown Timer
-  // Targets 1 day (24 hours) from the user's first visit to create conversion urgency.
-  let targetDate = localStorage.getItem('vinmec_workshop_new_countdown_target');
-  
-  if (!targetDate) {
-    const now = new Date();
-    // Set target to 1 day (24 hours) from now
-    const target = new Date(now.getTime() + 1 * 24 * 60 * 60 * 1000);
-    targetDate = target.toISOString();
-    localStorage.setItem('vinmec_workshop_new_countdown_target', targetDate);
-  }
-
-  const countdownTarget = new Date(targetDate).getTime();
+  // 3. Countdown Timer (Target: 00:00 July 19, 2026)
+  const targetDate = new Date('2026-07-19T00:00:00+07:00');
+  const countdownTarget = targetDate.getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = countdownTarget - now;
 
+    // Update DOM elements
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
     if (distance < 0) {
-      // If expired, reset to another 24 hours to maintain urgency effect for new visitors
-      const newTarget = new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000);
-      localStorage.setItem('vinmec_workshop_new_countdown_target', newTarget.toISOString());
+      // If expired, keep showing 00
+      if (daysEl) daysEl.textContent = '00';
+      if (hoursEl) hoursEl.textContent = '00';
+      if (minutesEl) minutesEl.textContent = '00';
+      if (secondsEl) secondsEl.textContent = '00';
       return;
     }
 
@@ -71,12 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Update DOM
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
 
     if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
     if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
