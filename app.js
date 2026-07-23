@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Countdown Timer (Target: 00:00 July 19, 2026)
-  const targetDate = new Date('2026-07-19T00:00:00+07:00');
+  // 3. Countdown Timer (Target: 00:00 August 15, 2026)
+  const targetDate = new Date('2026-08-15T00:00:00+07:00');
   const countdownTarget = targetDate.getTime();
 
   function updateCountdown() {
